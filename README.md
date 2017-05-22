@@ -11,9 +11,6 @@ Both for the back end and front end application check
 Just for the backend application:
 
 * mongodb [official installation guide](https://docs.mongodb.org/manual/administration/install-community/)
-* mocha cli [installation](https://mochajs.org/#installation)
-
-
 
 ## Setup (before first run)
 
