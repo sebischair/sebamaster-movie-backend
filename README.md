@@ -1,6 +1,6 @@
 # sebamaster-movie-backend application
 
-sebamaster-movie-frontend application can be found [here](https://bitbucket.org/sebischair/sebamaster-movie-frontend)
+sebamaster-movie-frontend application can be found [here](https://github.com/sebischair/sebamaster-movie-frontend)
 
 ## Prerequisites
 
