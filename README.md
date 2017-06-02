@@ -16,7 +16,7 @@ Just for the backend application:
 
 go to your project root folder via command line
 ```
-cd path/to/workspace/sebamaster-movie-frontend
+cd path/to/workspace/sebamaster-movie-backend
 ```
 
 **install node dependencies**
