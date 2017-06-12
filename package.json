@@ -1,26 +1,26 @@
 {
-  "name": "moviebass",
+  "name": "sebamaster-movie-backend",
   "version": "1.0.0",
-  "description": "Movie backend as a service",
+  "description": "SEBAMaster movie backend as a service",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://bitbucket.org/sebischair/sebamaster-movie-backend"
+    "url": "https://github.com/sebischair/sebamaster-movie-backend.git"
   },
   "keywords": [
     "movie-backend",
     "seba",
     "master"
   ],
-  "author": "sebis",
+  "author": "sebischair",
   "license": "ISC",
   "bugs": {
-    "url": "https://bitbucket.org/sebischair/sebamaster-movie-backend"
+    "url": "https://github.com/sebischair/sebamaster-movie-backend.git"
   },
-  "homepage": "https://bitbucket.org/sebischair/sebamaster-movie-backend#readme",
+  "homepage": "https://github.com/sebischair/sebamaster-movie-backend.git#readme",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.15.0",
