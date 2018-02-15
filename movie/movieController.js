@@ -2,10 +2,6 @@
 var Movie = require('./movieSchema');
 exports.postMovie = function(req, res) {
     var movie = new Movie(req.body);
-    //do not allow user to fake identity. The user who postet the movie must be the same user that is logged in
-    if (!req.user.equals(movie.user)) {
-        res.sendStatus(401);
-    }
     movie.save(function(err, m) {
         if (err) {
             res.status(500).send(err);

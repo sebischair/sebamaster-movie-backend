@@ -27,10 +27,6 @@
     "cors": "^2.7.1",
     "express": "^4.13.4",
     "express-unless": "^0.3.0",
-    "jwt-simple": "^0.5.0",
-    "mongoose": "^4.4.6",
-    "passport": "^0.3.2",
-    "passport-jwt": "^2.0.0",
-    "supertest": "^1.2.0"
+    "mongoose": "^4.4.6"
   }
 }

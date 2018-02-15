@@ -7,9 +7,11 @@ var Movie   = new mongoose.Schema({
     synopsis: String,
     mpaa_rating: String,
     year: Number,
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
+    posters: {
+        thumbnail: String,
+        profile: String,
+        detailed: String,
+        original: String
     }
 });
 
