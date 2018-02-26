@@ -24,10 +24,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
+//passport
+var passport = require('passport');
+var jwtConfig = require('./passport/jwtConfig');
+app.use(passport.initialize());
+jwtConfig(passport);
 /**
  * routing
  */
+var userRoutes = require("./user/userRoutes");
 var movieRoutes = require("./movie/movieRoutes");
-app.use('/api/movies', movieRoutes());
+app.use('/api/movies', movieRoutes(passport));
+app.use('/api/user', userRoutes(passport));
 module.exports = app;
 
