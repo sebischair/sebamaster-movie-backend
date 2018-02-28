@@ -1,35 +1,33 @@
 {
   "name": "sebamaster-movie-backend",
   "version": "1.0.0",
-  "description": "SEBAMaster movie backend as a service",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js"
-  },
+  "description": "EBAMaster movie backend as a service",
+  "main": "index.js",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/sebischair/sebamaster-movie-backend.git"
   },
-  "keywords": [
-    "movie-backend",
-    "seba",
-    "master"
-  ],
   "author": "sebischair",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sebischair/sebamaster-movie-backend.git"
+    "url": "https://github.com/sebischair/sebamaster-movie-backend/issues"
   },
-  "homepage": "https://github.com/sebischair/sebamaster-movie-backend.git#readme",
+  "homepage": "ttps://github.com/sebischair/sebamaster-movie-backend.git#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./index.js",
+    "devstart": "nodemon ./index.js"
+  },
   "dependencies": {
-    "bcrypt-nodejs": "0.0.3",
-    "body-parser": "^1.15.0",
-    "cors": "^2.7.1",
-    "express": "^4.13.4",
-    "express-unless": "^0.3.0",
-    "jwt-simple": "^0.5.0",
-    "mongoose": "^4.4.6",
-    "passport": "^0.3.2",
-    "passport-jwt": "^2.0.0"
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "helmet": "^3.11.0",
+    "jsonwebtoken": "^8.1.1",
+    "mongoose": "^5.0.7"
+  },
+  "devDependencies": {
+    "nodemon": "^1.14.12"
   }
 }

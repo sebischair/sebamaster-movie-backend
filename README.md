@@ -37,18 +37,23 @@ mongod --dbpath relative/path/to/database
 mongorestore dump/
 ```
 
-**Set up environment configuration**
+**Set the environment variables**
 
-Copy one of the config files in the config directory and rename it to `config.js`. DO NOT check in your config.js file into source control. If you make a changes that your team members should be able to see (e.g. introducing a new config variable), change it in `config.dev_local.js`
-
-You can also create more example config files in your `config` directory, e.g. `config.dev_server` for your development server. 
-
-Note: While it is a good idea to have some configuration available for everyone, it is considered bad practice to check in sensitive data into source control (e.g. credentials for database access)
-
-## Running
-
-Start the web server
-
+This variables are based in your local configuration
+```bash
+export PORT=3000
+export MONGODB_URI="mongodb://localhost:27017/moviedb"
+export JWT_SECRET="very secret secret"
 ```
-node server.js
+
+## Start the project
+
+## Development environment
+```bash
+npm run devstart
+```
+
+## Production environment
+```bash
+npm start
 ```
