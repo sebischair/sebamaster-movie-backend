@@ -11,7 +11,6 @@ const UserController = require('../controllers/user');
 
 
 router.post('/login', function(req, res) {
-
     if (!req.body.hasOwnProperty('password')) return res.status(400).json({
         error: 'Bad Request',
         message: 'The request body must contain a password property'
@@ -32,7 +31,7 @@ router.post('/login', function(req, res) {
 
             // if user is found and password is valid
             // create a token
-            const token = jwt.sign({ id: user._id }, config.JwtSecret, {
+            const token = jwt.sign({ id: user._id, username: user.username }, config.JwtSecret, {
                 expiresIn: 86400 // expires in 24 hours
             });
 

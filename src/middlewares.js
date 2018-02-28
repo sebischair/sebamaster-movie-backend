@@ -9,6 +9,9 @@ const allowCrossDomain = (req, res, next) => {
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
     res.header('Access-Control-Allow-Headers', '*');
 
+    // Transform body to standard object type
+    req.body = JSON.parse(JSON.stringify(req.body));
+
     // intercept OPTIONS method
     if ('OPTIONS' == req.method) {
         res.status(200).send(200);
