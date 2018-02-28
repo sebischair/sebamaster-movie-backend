@@ -48,12 +48,12 @@ export JWT_SECRET="very secret secret"
 
 ## Start the project
 
-## Development environment
+**Development environment**
 ```bash
 npm run devstart
 ```
 
-## Production environment
+**Production environment**
 ```bash
 npm start
 ```
