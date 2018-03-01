@@ -9,9 +9,6 @@ const allowCrossDomain = (req, res, next) => {
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
     res.header('Access-Control-Allow-Headers', '*');
 
-    // Transform body to standard object type
-    req.body = JSON.parse(JSON.stringify(req.body));
-
     // intercept OPTIONS method
     if ('OPTIONS' == req.method) {
         res.status(200).send(200);
@@ -47,9 +44,17 @@ const checkAuthentication = (req, res, next) => {
 
 };
 
+const errorHandler = (err, req, res, next) => {
+    if (res.headersSent) {
+        return next(err)
+    }
+    res.status(500);
+    res.render('error', { error: err })
+};
 
 
 module.exports = {
     allowCrossDomain,
-    checkAuthentication
+    checkAuthentication,
+    errorHandler
 };
