@@ -8,7 +8,6 @@ const UserModel  = require('../models/user');
 
 
 const login = (req,res) => {
-
     if (!Object.prototype.hasOwnProperty.call(req.body, 'password')) return res.status(400).json({
         error: 'Bad Request',
         message: 'The request body must contain a password property'
@@ -70,10 +69,20 @@ const register = (req,res) => {
 
 
         })
-        .catch(error => res.status(500).json({
-            error: 'Internal server error',
-            message: error.message
-        }));
+        .catch(error => {
+            if(error.code == 11000) {
+                res.status(400).json({
+                    error: 'User exists',
+                    message: error.message
+                })
+            }
+            else{
+                res.status(500).json({
+                    error: 'Internal server error',
+                    message: error.message
+                })
+            }
+        });
 
 };
 
