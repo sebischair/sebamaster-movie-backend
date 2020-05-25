@@ -2,8 +2,8 @@
 
 const mongoose = require('mongoose');
 
-// Define the user schema
 
+// Define the user schema
 const UserSchema  = new mongoose.Schema({
     username: {
         type: String,
@@ -17,6 +17,7 @@ const UserSchema  = new mongoose.Schema({
 });
 
 UserSchema.set('versionKey', false);
+
 
 // Export the Movie model
 module.exports = mongoose.model('User', UserSchema);

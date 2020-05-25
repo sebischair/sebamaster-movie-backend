@@ -3,76 +3,90 @@
 const MovieModel = require('../models/movie');
 
 
-const create = (req, res) => {
+const create = async (req, res) => {
     if (Object.keys(req.body).length === 0) return res.status(400).json({
         error: 'Bad Request',
         message: 'The request body is empty'
     });
 
-    MovieModel.create(req.body)
-        .then(movie => res.status(201).json(movie))
-        .catch(error => res.status(500).json({
-            error: 'Internal server error',
-            message: error.message
-        }));
+    try {
+      let movie = await MovieModel.create(req.body);
+
+      return res.status(201).json(movie)
+    } catch(err) {
+      return res.status(500).json({
+        error: 'Internal server error',
+        message: err.message
+      });
+    }
 };
 
-const read   = (req, res) => {
-    MovieModel.findById(req.params.id).exec()
-        .then(movie => {
+const read = async (req, res) => {
+  try {
+    let movie = await MovieModel.findById(req.params.id).exec();
 
-            if (!movie) return res.status(404).json({
-                error: 'Not Found',
-                message: `Movie not found`
-            });
+    if (!movie) return res.status(404).json({
+      error: 'Not Found',
+      message: `Movie not found`
+    });
 
-            res.status(200).json(movie)
-
-        })
-        .catch(error => res.status(500).json({
-            error: 'Internal Server Error',
-            message: error.message
-        }));
-
+    return res.status(200).json(movie)
+  } catch(err) {
+    return res.status(500).json({
+      error: 'Internal Server Error',
+      message: err.message
+    });
+  }
 };
 
-const update = (req, res) => {
-    if (Object.keys(req.body).length === 0)
-    {
+const update = async (req, res) => {
+    if (Object.keys(req.body).length === 0) {
         return res.status(400).json({
             error: 'Bad Request',
             message: 'The request body is empty'
         });
     }
 
-    MovieModel.findByIdAndUpdate(req.params.id,req.body,{
+    try {
+      let movie = await MovieModel.findByIdAndUpdate(req.params.id, req.body, {
         new: true,
-        runValidators: true}).exec()
-        .then(movie => res.status(200).json(movie))
-        .catch(error => res.status(500).json({
-            error: 'Internal server error',
-            message: error.message
-        }));
+        runValidators: true
+      }).exec();
+
+      return res.status(200).json(movie);
+    } catch(err) {
+      return res.status(500).json({
+        error: 'Internal server error',
+        message: err.message
+      });
+    }
 };
 
-const remove = (req, res) => {
-    MovieModel.findByIdAndRemove(req.params.id).exec()
-        .then(() => res.status(200).json({message: `Movie with id${req.params.id} was deleted`}))
-        .catch(error => res.status(500).json({
-            error: 'Internal server error',
-            message: error.message
-        }));
+const remove = async (req, res) => {
+  try {
+    await MovieModel.findByIdAndRemove(req.params.id).exec();
+
+    return res.status(200).json({message: `Movie with id${req.params.id} was deleted`});
+  } catch(err) {
+    return res.status(500).json({
+      error: 'Internal server error',
+      message: err.message
+    });
+  }
 };
 
-const list  = (req, res) => {
-    MovieModel.find({}).exec()
-        .then(movies => res.status(200).json(movies))
-        .catch(error => res.status(500).json({
-            error: 'Internal server error',
-            message: error.message
-        }));
-};
+const list  = async (req, res) => {
+  try {
+    let movies = await MovieModel.find({}).exec();
 
+    return res.status(200).json(movies);
+  } catch(err) {
+    return res.status(500).json({
+      error: 'Internal server error',
+      message: err.message
+    });
+  }
+};
 
 
 module.exports = {

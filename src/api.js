@@ -9,8 +9,8 @@ const middlewares = require('./middlewares');
 const auth  = require('./routes/auth');
 const movie = require('./routes/movie');
 
-const api = express();
 
+const api = express();
 
 // Adding Basic Middlewares
 api.use(helmet());
@@ -29,7 +29,6 @@ api.get('/', (req, res) => {
 // API routes
 api.use('/auth'  , auth);
 api.use('/movies', movie);
-
 
 
 module.exports = api;
